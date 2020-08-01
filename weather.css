@@ -1,0 +1,70 @@
+*{
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+body{
+	font-family: 'Croissant One';
+	background-color: grey;
+	background-image: url('rain.png');
+
+}
+.container{
+	background-color: white;
+	width: 69%;
+	margin-top: 10px;
+	margin-left: 15%;
+	margin-right: 15%;
+	border-radius: 15px;
+}
+.container-image{
+	width: 100%
+	height:30%;
+}
+#image{
+	width: 100%;
+	height: 30%;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px
+}
+#input{
+	width:69%;
+	margin-top: 5%;
+	margin-bottom: 3%;
+	margin-left: 15%;
+	border-radius: 25px;
+	box-shadow: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	outline: none;
+
+
+}
+span{
+	font-size:35px;
+}
+#display-grid{
+	display: grid;
+	grid-gap: 2px;
+	grid-template-columns: repeat(2, 1fr);
+}
+#display-grid div{
+	height:100px;
+	display: flex;
+	flex-direction: column;
+	padding:10px;
+
+}
+#place{
+	color:blue;
+	padding: 10px;
+	text-shadow: 15px;
+	text-transform: uppercase;
+}
+#credit{
+	padding: 20px;
+	padding-bottom: 1%;
+	text-align: center;
+	font-size: 10px;
+}

@@ -1,33 +1,37 @@
- const searchForm = document.getElementById('search-form');
- const citySearch = document.getElementById('input');
- const place = document.getElementById('place');
- const cardBody = document.getElementById('display-grid');
+ let searchForm = document.getElementById('search-form');
+const citySearch = document.getElementById('input');
+const place = document.getElementById('place');
+const cardBody = document.getElementById('display-grid');
 
-updateWeather=(city)=>{
-	console.log(city);
-	place.textContent = city.name;
-	cardBody.innerHTML = `
+searchForm.addEventListener("submit", (event)=>{
+	event.preventDefault();
 
-			<div>
-				<p><span>${city.main.temp}&deg;F</span></p>
-			</div>
-			<div id="info">
-				<p id="condition"><i class='fas fa-smog'>&nbsp</i>${city.weather[0].main}</p>
-				<p id="condition"><i class='fas fa-map-marker-alt'>&nbsp</i>${city.sys.country}</p>
-			</div>
-	`
-}
+	updateWeather=(city)=>{
+		console.log(city);
+		place.textContent = city.name;
+		cardBody.innerHTML = `
 
- searchForm.addEventListener('submit', (e)=>{
- 	e.preventDefault();
- 	const citySearched = citySearch.value.trim();
- 	searchForm.reset();
+				<div>
+					<p><span>${city.main.temp}&deg;F</span></p>
+				</div>
+				<div id="info">
+					<p id="condition"><i class='fas fa-smog'>&nbsp</i>${city.weather[0].main}</p>
+					<p id="condition"><i class='fas fa-map-marker-alt'>&nbsp</i>${city.sys.country}</p>
+				</div>
+		`
+	}
 
- 	requestCity(citySearched)
- 	.then((data)=>{
- 		updateWeather(data);
- 	})
- 	.catch((error)=>{
- 		console.log(error)
- 	})
- })
+	 searchForm.addEventListener('submit', (e)=>{
+	 	e.preventDefault();
+	 	const citySearched = citySearch.value.trim();
+	 	searchForm.reset();
+
+	 	requestCity(citySearched)
+	 	.then((data)=>{
+	 		updateWeather(data);
+	 	})
+	 	.catch((error)=>{
+	 		console.log(error)
+	 	})
+	 })
+});
